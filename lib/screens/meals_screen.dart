@@ -8,11 +8,40 @@ class MealsScreen extends StatelessWidget {
   final List<Meal> meals;
   @override
   Widget build(BuildContext context) {
+    Widget content = Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'Oh no the list is currently empty',
+            style: Theme.of(context)
+                .textTheme
+                .headlineMedium!
+                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+          ),
+          Text(
+            'Try selecting other categories',
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge!
+                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+          )
+        ],
+      ),
+    );
+
+    if (meals.isNotEmpty) {
+      content = ListView.builder(
+        itemCount: meals.length,
+        itemBuilder: (context, index) => Text(meals[index].title),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Text('hi'),
+      body: content,
     );
   }
 }
