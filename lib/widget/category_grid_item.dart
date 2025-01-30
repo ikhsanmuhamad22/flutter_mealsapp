@@ -7,7 +7,7 @@ class Categories extends StatelessWidget {
 
   final Category category;
   final void Function(BuildContext context, Category category) onSelectCategory;
-  
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
