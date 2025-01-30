@@ -13,18 +13,19 @@ class MealsScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Oh no the list is currently empty',
+            'Oh no, the list is currently empty',
             style: Theme.of(context)
                 .textTheme
                 .headlineMedium!
-                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+                .copyWith(color: Theme.of(context).colorScheme.onSurface),
           ),
+          SizedBox(height: 16),
           Text(
             'Try selecting other categories',
             style: Theme.of(context)
                 .textTheme
-                .titleLarge!
-                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+                .titleMedium!
+                .copyWith(color: Theme.of(context).colorScheme.onSurface),
           )
         ],
       ),

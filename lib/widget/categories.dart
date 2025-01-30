@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/models/category.dart';
 
 class Categories extends StatelessWidget {
-  const Categories({super.key, required this.category});
+  const Categories(
+      {super.key, required this.category, required this.onSelectCategory});
 
   final Category category;
+  final void Function(BuildContext context, Category category) onSelectCategory;
+  
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => onSelectCategory(context, category),
       hoverColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(16),
       child: Container(
