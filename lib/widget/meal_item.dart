@@ -1,11 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
+import 'package:meals_app/screens/meal_detail_screen.dart';
+import 'package:meals_app/widget/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
   const MealItem({super.key, required this.meal});
 
   final Meal meal;
+
+  get complexityText {
+    return meal.complexity.name[0].toUpperCase() +
+        meal.complexity.name.substring(1);
+  }
+
+  get affordabilityText {
+    return meal.affordability.name[0].toUpperCase() +
+        meal.affordability.name.substring(1);
+  }
+
+  void _selectMeal(
+    BuildContext context,
+  ) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MealDetailScreen(meal: meal),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +38,7 @@ class MealItem extends StatelessWidget {
       elevation: 3,
       clipBehavior: Clip.hardEdge,
       child: InkWell(
+        onTap: () => _selectMeal(context),
         child: Stack(
           children: [
             FadeInImage(
@@ -44,7 +68,26 @@ class MealItem extends StatelessWidget {
                     ),
                     SizedBox(height: 12),
                     Row(
-                      children: [],
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        MealItemTrait(
+                          icon: Icons.alarm,
+                          label: meal.duration.toString(),
+                        ),
+                        SizedBox(width: 24),
+                        MealItemTrait(
+                          icon: Icons.add_home_outlined,
+                          label: complexityText,
+                        ),
+                        SizedBox(width: 24),
+                        MealItemTrait(
+                          icon: Icons.account_balance_wallet,
+                          label: affordabilityText,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 6,
                     )
                   ],
                 ),
