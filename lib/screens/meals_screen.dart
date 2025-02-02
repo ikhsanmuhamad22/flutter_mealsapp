@@ -24,10 +24,10 @@ class MealsScreen extends StatelessWidget {
             'Oh no, the list is currently empty',
             style: Theme.of(context)
                 .textTheme
-                .headlineMedium!
+                .headlineSmall!
                 .copyWith(color: Theme.of(context).colorScheme.onSurface),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 8),
           Text(
             'Try selecting other categories',
             style: Theme.of(context)
