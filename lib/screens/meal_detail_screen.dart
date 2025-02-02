@@ -44,7 +44,7 @@ class MealDetailScreen extends StatelessWidget {
               Text(
                 ingredient,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground),
+                    color: Theme.of(context).colorScheme.onSurface),
               ),
             SizedBox(height: 24),
             Text(
@@ -61,7 +61,7 @@ class MealDetailScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   step,
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      color: Theme.of(context).colorScheme.onBackground),
+                      color: Theme.of(context).colorScheme.onSurface),
                 ),
               ),
           ],
